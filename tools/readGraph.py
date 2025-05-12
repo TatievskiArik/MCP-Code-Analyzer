@@ -7,8 +7,8 @@ def load_graph(filepath: str) -> Tuple[List[str], List[Tuple[str, str, str]]]:
     nodes = data.get("nodes", [])
     arcs_raw = data.get("arcs", {})
     arcs = []
-    for source, dependencies in arcs_raw.items():
-        for dep in dependencies:
-            for target, dependency in dep.items():
-                arcs.append((source, target, dependency))  # (from, to, what)
-    return nodes, arcs
+    # for source, dependencies in arcs_raw.items():
+    #     for dep in dependencies:
+    #         for target, dependency in dep.items():
+    #             arcs.append((source, target, dependency))  # (from, to, what)
+    return nodes, arcs_raw

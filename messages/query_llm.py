@@ -17,14 +17,11 @@ client = AzureOpenAI(
     azure_endpoint=azure_endpoint
 )
 
-def send_query_to_llm(prompt: str, sys_msg: str) -> str:
+def send_query_to_llm(msgs:list) -> str:
     try:
         response = client.chat.completions.create(
             model=deployment_name,  # Use your deployment name here
-            messages=[
-                {"role": "system", "content": sys_msg},
-                {"role": "user", "content": prompt}
-            ],
+            messages=msgs,
             temperature=0.4,
         )
         return response.choices[0].message.content.strip()
