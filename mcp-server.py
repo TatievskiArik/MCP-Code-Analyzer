@@ -7,7 +7,6 @@ from memory.memoryOrch import create_session
 import os
 from collections import OrderedDict
 import json
-import uuid
 
 app = Flask(__name__)
 
@@ -235,7 +234,7 @@ def analyzeGraph():
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
 @app.route('/tools/query', methods=['POST'])
-def query():
+def queryGraph():
     data = request.get_json()
     if not data:
         return jsonify({"error": "Missing JSON payload"}), 400

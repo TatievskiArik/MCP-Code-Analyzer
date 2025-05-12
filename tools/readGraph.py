@@ -1,5 +1,5 @@
 import json
-from typing import List, Dict, Tuple
+from typing import List, Tuple
 
 def load_graph(filepath: str) -> Tuple[List[str], List[Tuple[str, str, str]]]:
     with open(filepath, "r", encoding="utf-8") as f:
